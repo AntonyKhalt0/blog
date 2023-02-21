@@ -1,0 +1,9 @@
+h2 class="text-start"= "Посты"
+.products
+  table class="table"
+    tb
+      p= link_to "Новый пост", new_post_path, class: "text-decoration-none"
+    tb
+      = render @posts
+  div class="digg_pagination bg-transparent"
+    p= will_paginate @products

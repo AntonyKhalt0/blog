@@ -1,0 +1,11 @@
+div class="card mb-3 border-primary bg-transparent" style="max-width: 640px;"
+  div class="row g-0 align-items-center"
+    div class="col-4"
+      div class="text-center"
+        - if product.images.any?
+          = image_tag(product.images[0], size: 120)
+        - else
+          = t('.empty_image')
+    div class="col-8"
+      div class="card-body"
+        h5 class="card-title"= link_to post.title, post_path(post), class: "text-dark text-decoration-none"
