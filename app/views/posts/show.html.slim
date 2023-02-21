@@ -3,7 +3,7 @@ div class="card mb-3 bg-transparent" style="max-width: 640px;"
     div class="col-md-4"
       div class="text-center"
         - if @images.any?
-          = image_tag(@product.images[0], size: 120)
+          = image_tag(@post.images[0], size: 120)
         - else
           = "Нет изображения"
         div class="digg_pagination"
@@ -14,7 +14,9 @@ div class="card mb-3 bg-transparent" style="max-width: 640px;"
         p class="card-text"= @post.description
         div class="row"
         - if current_user == @post.author
-          div class="col-sm-4"= button_to "Редактировать", edit_post_path(@post), class: "btn btn-primary"
+          div class="col-sm-4"
+            p= link_to "Редактировать", edit_post_path(@post), class: "btn btn-primary"
         - if current_user == @post.author
-          div class="col-sm-4"= button_to "Удалить", post_path(@post), method: :delete, class: "btn btn-danger"
+          div class="col-sm-4"
+            p= button_to "Удалить", post_path(@post), method: :delete, class: "btn btn-danger"
         p= link_to t('.back'), posts_path, class: "text-dark text-decoration-none"

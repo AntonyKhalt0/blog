@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users
-  root to: "posts#index"
+  root to: 'posts#index'
   resources :posts
 end
