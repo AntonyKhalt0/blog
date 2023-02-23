@@ -1,9 +1,19 @@
-h2 class="text-start"= "Посты"
-.products
-  table class="table"
-    tb
-      p= link_to "Новый пост", new_post_path, class: "text-decoration-none"
-    tb
-      = render @posts
-  div class="digg_pagination bg-transparent"
-    p= will_paginate @products
+div class="row"
+  div class="col-2"
+  div class="col-10"
+    p
+    div class="row"
+      div class="col"
+        h2 class="text-start"= "Посты пользователей"
+      div class="col"
+        = link_to "Все посты", root_path, class: 'btn btn-outline-info'
+        = " "
+        = link_to "Мои посты", 'posts/my', class: 'btn btn-outline-success'
+    .products
+      table class="table"
+        tb
+          p= link_to "Новый пост", new_post_path, class: "btn btn-outline-success btn-sm"
+        tb
+          = render @posts
+      div class="digg_pagination bg-transparent"
+        p= will_paginate @products

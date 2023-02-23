@@ -1,17 +1,21 @@
+p
 div class="card bg-transparent"
   div class="card-body"
     = form_with model: @post do |f|
       p
         = f.label :title, "Тема поста"
+        = " "
         = f.text_field :title
       p
         = f.label :description, "Текст поста"
+        = " "
         = f.text_area :description, size: "40x5"
       p
         = f.label :images, "Изображения"
+        = " "
         = f.file_field :images, multiple: true
       p
-        = f.submit "Обновить"
+        = f.submit "Обновить", class: "btn btn-outline-success btn-sm"
 
     p
-      = link_to "Назад", post_path(@post), class: "text-dark text-decoration-none"
+      = link_to "Назад", post_path(@post), class: "btn btn-outline-dark btn-sm"

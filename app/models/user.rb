@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts, as: :author, dependent: :destroy
+  has_many :comments, as: :author, dependent: :destroy
 
   validates :nickname, presence: true
 end

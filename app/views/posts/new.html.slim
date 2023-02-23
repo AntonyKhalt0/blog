@@ -1,3 +1,4 @@
+p
 div class="card bg-transparent"
   div class="card-body"
     = form_with model: @post do |f|
@@ -11,7 +12,7 @@ div class="card bg-transparent"
         = f.label :images, "Изображения"
         = f.file_field :images, multiple: true
       p
-        = f.submit "Создать"
+        = f.submit "Создать", class: "btn btn-outline-success btn-sm"
 
     p
-      = link_to "Назад", posts_path, class: "text-dark text-decoration-none"
+      = link_to "Назад", posts_path, class: "btn btn-outline-dark btn-sm"
