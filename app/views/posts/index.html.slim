@@ -7,8 +7,11 @@ div class="row"
         h2 class="text-start"= "Посты пользователей"
       div class="col"
         = link_to "Все посты", root_path, class: 'btn btn-outline-info'
-        = " "
-        = link_to "Мои посты", 'posts/my', class: 'btn btn-outline-success'
+        - if current_user
+          = " "
+          = link_to "Мои посты", 'posts/my', class: 'btn btn-outline-success'
+          = " "
+          = link_to "Подписки", 'posts/following', class: 'btn btn-outline-primary'
     .products
       table class="table"
         tb

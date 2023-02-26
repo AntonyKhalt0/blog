@@ -27,7 +27,7 @@ div class="row"
             = link_to "Назад", posts_path, class: "btn btn-outline-dark btn-sm"
 
     h5="Комментарии:"
-    = render @post.comments
+    = render @comments
 
     = form_with model: [@post, @comment], local: false do |f|
       p

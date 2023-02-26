@@ -1,0 +1,12 @@
+p
+div class="card bg-transparent"
+  div class="card-header"
+    h4= "Профиль #{@profile.nickname}"
+  div class="card-body"
+    p class="card-text"= "Email: #{@profile.email}"
+    p class="card-text"
+      = link_to "#{@profile.posts.count} поста(ов)", posts_my_path
+    p class="card-text"
+      = link_to "#{@profile.following.count} подписок", user_following_path(current_user)
+    p class="card-text"
+      = link_to "#{@profile.followers.count} подписчиков", user_followers_path(current_user)

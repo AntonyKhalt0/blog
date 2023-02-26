@@ -5,11 +5,14 @@ class PostsController < ApplicationController
   before_action :get_post, only: %i[show new edit update destroy]
 
   def index
-    @posts = params[:my] ? current_user_post(current_user) : all_posts
+    return @posts = user_posts(current_user) if params[:my]
+
+    @posts = params[:following] ? user_posts(current_user.following) : all_posts
   end
 
   def show
     @images = @post.images.paginate(page: params[:page], per_page: 1)
+    @comments = @post.comments
     @comment = Comment.new
   end
 
@@ -52,10 +55,10 @@ class PostsController < ApplicationController
   end
 
   def all_posts
-    Post.all.paginate(page: params[:page], per_page: 6)
+    Post.order(created_at: :desc).paginate(page: params[:page], per_page: 6)
   end
 
-  def current_user_post(author)
-    Post.where(author: author).paginate(page: params[:page], per_page: 6)
+  def user_posts(author)
+    Post.where(author: author).order(created_at: :desc).paginate(page: params[:page], per_page: 6)
   end
 end

@@ -6,7 +6,9 @@ nav class="navbar navbar-dark bg-dark"
       = link_to "Главная", root_path
       = ' | '
       - if user_signed_in?
-        = link_to "Выйти", destroy_user_session_path, data: { "turbo-method": :delete }
+        = link_to "Профиль", profile_path(current_user)
+        = ' | '
+        = link_to "Выйти", destroy_user_session_path, :method => :delete, remote: true
       - else
         = link_to "Войти", new_user_session_path
         = ' | '

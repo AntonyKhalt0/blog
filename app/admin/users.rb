@@ -3,6 +3,5 @@ ActiveAdmin.register User do
     id_column
     column :nickname
     column :email
-    column :password
   end
 end
