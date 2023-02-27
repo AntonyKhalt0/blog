@@ -55,13 +55,12 @@ gem 'rubocop-rails', require: false
 gem 'slim-rails'
 gem 'will_paginate'
 
-#Админка
+# Админка
 gem 'activeadmin'
 gem 'arctic_admin'
 
 # authentication
 gem 'devise'
-
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

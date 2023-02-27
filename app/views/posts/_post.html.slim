@@ -8,5 +8,5 @@ div class="card mb-3 border-dark bg-transparent" style="max-width: 480px;"
       - if current_user
         - if current_user.following?(post.author)
           = button_to "Отписаться", relationship_path(current_user.active_relationships.find_by(followed_id: post.author.id)), method: :delete, class: "btn btn-outline-success btn-sm"
-        - else
+        - elsif !current_user.author?(post)
           = button_to "Подписаться", relationships_path, class: "btn btn-outline-success btn-sm", params: { followed_id: post.author }

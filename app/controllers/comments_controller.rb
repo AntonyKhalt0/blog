@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :post, only: :create
@@ -6,9 +8,9 @@ class CommentsController < ApplicationController
     @comment = post.comments.new(comment_params)
     @comment.author = current_user
 
-    if @comment.save
-      redirect_to @comment.post
-    end
+    return unless @comment.save
+
+    redirect_to @comment.post
   end
 
   def destroy

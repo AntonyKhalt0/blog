@@ -5,8 +5,8 @@ div class="card bg-transparent"
   div class="card-body"
     p class="card-text"= "Email: #{@profile.email}"
     p class="card-text"
-      = link_to "#{@profile.posts.count} поста(ов)", posts_my_path
+      = link_to "#{@profile.posts.count} поста(ов)", posts_my_path, class: "btn btn-outline-primary"
     p class="card-text"
-      = link_to "#{@profile.following.count} подписок", user_following_path(current_user)
+      = link_to "#{@profile.following.count} подписок", user_following_path(current_user), class: "btn btn-outline-primary"
     p class="card-text"
-      = link_to "#{@profile.followers.count} подписчиков", user_followers_path(current_user)
+      = link_to "#{@profile.followers.count} подписчиков", user_followers_path(current_user), class: "btn btn-outline-primary"
